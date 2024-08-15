@@ -1,16 +1,16 @@
 import pyspark
 
-session = pyspark.sql.SparkSession.builder.appName("SalesJan2009").getOrCreate()
+spark = pyspark.sql.SparkSession.builder.appName("SalesJan2009").getOrCreate()
 
-df = session.read.options(header=True).csv("SalesJan2009.csv")
+# Read csv data into a Dataframe
+df = spark.read.options(header=True).csv("SalesJan2009.csv")
 
-# Display first 5 rows
+# Display the first 5 rows
 df.show(5)
 
-sales_table = "sales"
+SALES_TABLE = "sales"
+df.createOrReplaceTempView(SALES_TABLE)
 
-df.createOrReplaceTempView(sales_table)
-
-query = f"SELECT DISTINCT Product FROM {sales_table}"
+query = f"SELECT DISTINCT Product FROM {SALES_TABLE}"
 print(f"Result for query '{query}'")
-session.sql(query).show()
+spark.sql(query).show()
