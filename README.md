@@ -1,4 +1,4 @@
-# Data Analysis with Apache Spark
+# Sales Data Analysis with Apache Spark
 ## Project Overview
 This project leverages Apache Spark to perform data analysis on a sales dataset. The dataset used for analysis is SalesJan2009.csv, which contains sales transactions from January 2009. The primary goal of this project is to demonstrate the capabilities of Apache Spark for data processing, transformation and analysis.
 
